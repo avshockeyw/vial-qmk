@@ -1,1 +1,2 @@
-DEFAULT_FOLDER = tominabox1/le_chiffre/rev1
+# This file intentionally left blank
+RGBLIGHT_ENABLE = yes

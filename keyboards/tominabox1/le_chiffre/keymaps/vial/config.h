@@ -1,4 +1,4 @@
 #pragma once
-
+#define VIAL_KEYBOARD_UID {0x74, 0xCD, 0xAB, 0x67, 0xBA, 0x3F, 0x8A, 0x54}
 #define VIAL_COMBO_ENTRIES 4
 #define VIAL_TAP_DANCE_ENTRIES 4
