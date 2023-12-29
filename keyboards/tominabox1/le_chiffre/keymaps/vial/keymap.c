@@ -15,51 +15,107 @@
  */
 #include QMK_KEYBOARD_H
 
-enum layers {
-    _BASE,
-    _NUM_SYM,
-    _NAV
-};
 
-#define KC_NUM_SPC LT(_NUM_SYM, KC_SPC)
-#define KC_GA LGUI_T(KC_A)
-#define KC_AS LALT_T(KC_S)
-#define KC_CD LCTL_T(KC_D)
-#define KC_SF LSFT_T(KC_F)
-#define KC_SJ RSFT_T(KC_J)
-#define KC_CK RCTL_T(KC_K)
-#define KC_AL RALT_T(KC_L)
-#define KC_GSCLN RGUI_T(KC_SCLN)
 
-// clang-format off
+// Copyright 2023 sporkus
+// SPDX-License-Identifier: GPL-2.0-or-later
+
+#include QMK_KEYBOARD_H
+
+#define HM_A  LSFT_T(KC_A)
+#define HM_S  LALT_T(KC_S)
+#define HM_D  LGUI_T(KC_D)
+#define HM_F  LCTL_T(KC_F)
+#define HM_J  RCTL_T(KC_J)
+#define HM_K  RGUI_T(KC_K)
+#define HM_L  RALT_T(KC_L)
+#define HM_Z  LSFT_T(KC_Z)
+#define HM_SLSH LSFT_T(KC_SLSH)
+#define HM_QUOT RSFT_T(KC_QUOT)
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_BASE] = LAYOUT(
-    KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,  KC_MPLY,  KC_Y,   KC_U,    KC_I,   KC_O,     KC_P,
-   KC_GA,  KC_AS,  KC_CD,  KC_SF,   KC_G,            KC_H,  KC_SJ,   KC_CK,  KC_AL, KC_GSCLN,
-    KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,            KC_N,   KC_M, KC_COMM, KC_DOT,  KC_SLSH,
-                         KC_LCTL, KC_ENT,            KC_NUM_SPC, MO(_NAV)
-  ),
+    [0] = LAYOUT(
+         KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,      KC_MUTE,     KC_Y,   KC_U,   KC_I,    KC_O,   KC_P,
+         HM_A,   HM_S,   HM_D,   HM_F,   KC_G,                   KC_H,   HM_J,   HM_K,    HM_L,   HM_QUOT,
+         HM_Z,   KC_X,   KC_C,   KC_V,   KC_B,                   KC_N,   KC_M,   KC_COMM, KC_DOT, HM_SLSH,
+                   LT(1, KC_ESC),  LT(1,KC_SPC),                 LT(2,KC_SPC), LT(2, KC_BSPC)
+    ),
 
-  [_NUM_SYM] = LAYOUT(
-        KC_1,  KC_2,     KC_3,     KC_4,      KC_5,  KC_TRNS,     KC_6,     KC_7,     KC_8,     KC_9,     KC_0,
-    KC_EXLM,  KC_AT,  KC_HASH,   KC_DLR,   KC_PERC,            KC_CIRC,  KC_AMPR,  KC_ASTR, KC_EQUAL,  KC_MINS,
-    KC_BSLS,KC_LCBR,  KC_LBRC,  KC_LPRN,   KC_UNDS,            KC_RPRN,  KC_RBRC,  KC_RCBR,   KC_DOT,   KC_GRV,
-                                KC_CAPS,   KC_TRNS,            KC_TRNS,  KC_TRNS
-  ),
+    [1] = LAYOUT(
+         _______,  _______,  _______,  KC_SCLN,  _______,  _______,  KC_EQL,   KC_7,     KC_8,     KC_9,     KC_0,
+         _______,  _______,  _______,  KC_COLN,  _______,            KC_MINS,  KC_4,     KC_5,     KC_6,     _______,
+         _______,  _______,  _______,  _______,  _______,            KC_BSLS,  KC_1,     KC_2,     KC_3,     _______,
+                                       _______,  KC_ENT,             KC_TAB,  _______
+    ),
 
-  [_NAV] = LAYOUT(
-      QK_BOOT,  _______,  AG_NORM,  AG_SWAP,  DB_TOGG, KC_TRNS,   KC_GRV,  KC_PGDN,    KC_UP,  KC_PGUP,  KC_SCLN,
-    RGB_TOG,  RGB_HUI,  RGB_SAI,  RGB_VAI,  KC_NO,           KC_HOME,  KC_LEFT,  KC_DOWN,  KC_RGHT,   KC_END,
-    RGB_MOD,  RGB_HUD,  RGB_SAD,  RGB_VAD,  KC_NO,           KC_MINS,    KC_INT1,  KC_COMM,   KC_DOT,  KC_BSLS,
-                                  KC_TRNS,KC_TRNS,           KC_TRNS,  KC_TRNS
-  )
+    [2] = LAYOUT(
+         _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,   KC_BSPC,   _______,    _______,
+         _______,  _______,  _______,  _______,  _______,            KC_LEFT,  KC_DOWN,   KC_UP,     KC_LEFT,    _______,
+         _______,  _______,  _______,  _______,  _______,            _______,  _______,   _______,   _______,    _______,
+                                       _______,  KC_ENT,             KC_TAB,  _______
+    )
 };
-// clang-format on
 
-#if defined(ENCODER_MAP_ENABLE)
-const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_BASE] =  {ENCODER_CCW_CW(KC_MNXT, KC_MPRV) },
-    [_NUM_SYM] = { ENCODER_CCW_CW(KC_WH_D, KC_WH_U) },
-    [_NAV] = { ENCODER_CCW_CW(KC_PGDN, KC_PGUP) }
+#ifdef ENCODER_MAP_ENABLE
+#undef BLANK_LAYER
+#define BLANK_LAYER { ENCODER_CCW_CW(_______, _______) }
+const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
+    [0] =   { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [1] =   BLANK_LAYER,
+    [2] =   BLANK_LAYER
 };
+#endif
+
+
+#ifdef RGB_MATRIX_ENABLE
+
+// Layer and Mods indicator
+#define LED_CENTER_TOP 9
+#define LED_CENTER_BOTTOM 10
+
+#define LAYER_R layer_colors[layer][0] *  RGB_INDICATOR_BRIGHTNESS / 255
+#define LAYER_G layer_colors[layer][1] *  RGB_INDICATOR_BRIGHTNESS / 255
+#define LAYER_B layer_colors[layer][2] *  RGB_INDICATOR_BRIGHTNESS / 255
+
+#define MODS_ACTIVE(mods) \
+    ((get_mods()|get_oneshot_mods()) & MOD_MASK_##mods ? RGB_INDICATOR_BRIGHTNESS:0)
+#define SHIFT_ACTIVE (get_mods() & MOD_MASK_SHIFT ? RGB_INDICATOR_BRIGHTNESS/4:0)
+#define MODS_R MODS_ACTIVE(CTRL) + SHIFT_ACTIVE
+#define MODS_G MODS_ACTIVE(GUI) + SHIFT_ACTIVE
+#define MODS_B MODS_ACTIVE(ALT) + SHIFT_ACTIVE
+
+const uint8_t PROGMEM layer_colors[][4] = {
+    {RGB_OFF},
+    {RGB_RED},
+    {RGB_GREEN},
+    {RGB_BLUE},
+    {RGB_YELLOW},
+    {RGB_PURPLE},
+    {RGB_PINK},
+    {RGB_TEAL}
+};
+
+void set_rgb_matrix_indicators(uint8_t led_min, uint8_t led_max) {
+    #if defined(RGB_LAYER_INDICATOR_ENABLE)
+    int layer = get_highest_layer(layer_state|default_layer_state);
+    RGB_MATRIX_INDICATOR_SET_COLOR(LED_CENTER_TOP, LAYER_R, LAYER_G, LAYER_B);
+    /* uprintf("layer RGB: (%u, %u, %u)\n", LAYER_R, LAYER_G, LAYER_B); */
+    #else
+    RGB_MATRIX_INDICATOR_SET_COLOR(LED_CENTER_TOP, 0, 0, 0);
+    #endif
+
+    #if defined(RGB_MODS_INDICATOR_ENABLE)
+    RGB_MATRIX_INDICATOR_SET_COLOR(LED_CENTER_BOTTOM, MODS_R, MODS_G, MODS_B);
+    /* uprintf("mod RGB: (%u, %u, %u)\n", MODS_R, MODS_G, MODS_B); */
+    #else
+    RGB_MATRIX_INDICATOR_SET_COLOR(LED_CENTER_BOTTOM, 0, 0, 0);
+    #endif
+}
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    set_rgb_matrix_indicators(led_min, led_max);
+    return false;
+}
+
 #endif

@@ -16,21 +16,40 @@
         "oled": false,
         "rgb_matrix": false
     },
-    "rgblight": {
+    "rgb_matrix": {
+        "driver": "ws2812",
         "animations": {
-            "alternating": true,
+            "solid_color": true,
+            "gradient_up_down": true,
+            "gradient_left_right": true,
             "breathing": true,
-            "knight": true,
-            "rainbow_mood": true,
-            "rainbow_swirl": true,
-            "rgb_test": true,
-            "snake": true,
-            "static_gradient": true
+            "band_spiral_sat": true,
+            "band_spiral_val": true,
+            "cycle_all": true,
+            "cycle_pinwheel": true,
+            "dual_beacon": true,
+            "rainbow_beacon": true,
+            "hue_breathing": true,
+            "hue_pendulum": true,
+            "hue_wave": true,
         },
-        "saturation_steps": 8,
-        "brightness_steps": 8,
-        "sleep": true,
-        "led_count": 11
+        "layout": [
+            {"x": 128, "y": 64, "flags": 2},
+            {"x": 77, "y": 64, "flags": 2},
+            {"x": 0, "y": 48, "flags": 2},
+            {"x": 0, "y": 0, "flags": 2},
+            {"x": 115, "y": 0, "flags": 2},
+            {"x": 166, "y": 0, "flags": 2},
+            {"x": 255, "y": 0, "flags": 2},
+            {"x": 255, "y": 48, "flags": 2},
+            {"x": 178, "y": 64, "flags": 2},
+            {"x": 128, "y": 40, "flags": 8},
+            {"x": 128, "y": 30, "flags": 8}
+        ],
+        "sat_steps": 8,
+        "speed_steps": 10,
+        "val_steps": 8,
+        "sleep": true
     },
     "usb": {
         "vid": "0x7431",
