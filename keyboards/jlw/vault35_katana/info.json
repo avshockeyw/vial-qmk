@@ -90,7 +90,6 @@
         ],
         "driver": "ws2812",
         "hue_steps": 4,
-        "max_brightness": 69,
         "sat_steps": 4,
         "val_steps": 4
     },
