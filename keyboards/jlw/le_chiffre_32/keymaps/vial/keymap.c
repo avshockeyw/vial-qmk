@@ -41,15 +41,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 };
 
-#ifdef ENCODER_MAP_ENABLE
+// Encoder Map
     const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
         [0] =   { ENCODER_CCW_CW(S(KC_F2), KC_F2) },
         [1] =   { ENCODER_CCW_CW(KC_VOLU, KC_VOLD) },
         [2] =   { ENCODER_CCW_CW(_______, _______) },
         [3] =   { ENCODER_CCW_CW(_______, _______) }
     };
-#endif
 
+// Combos disabled for Vial
 #ifndef VIAL_ENABLE
     const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W,    COMBO_END};
     const uint16_t PROGMEM combo_del[] = {KC_Y, KC_QUOT, COMBO_END};
@@ -59,8 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     };
 #endif
 
-#ifdef RGB_MATRIX_ENABLE
-
+// RGB settings for indicator lights
 // Layer and Mods indicator
 #define LED_CENTER_TOP 1
 #define LED_CENTER_BOTTOM 0
@@ -108,5 +107,3 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     set_rgb_matrix_indicators(led_min, led_max);
     return false;
 }
-
-#endif

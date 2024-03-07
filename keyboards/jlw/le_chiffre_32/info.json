@@ -26,6 +26,8 @@
         "extrakey": true,
         "mousekey": true,
         "nkro": true,
+        "encoder_map": true,
+        "rgb_matrix": true
     },
     "bootmagic": {
         "enabled": true,
@@ -168,7 +170,6 @@
         "pin": "A15"
     },
     "rgb_matrix": {
-        "enabled": true,
         "animations": {
             "alphas_mods": true,
             "band_pinwheel_sat": true,

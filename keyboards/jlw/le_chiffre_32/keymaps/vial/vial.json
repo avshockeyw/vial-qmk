@@ -6,8 +6,8 @@
     },
     "layouts": {
         "labels": [
-            ["Center", "Knob", "Switch", "None"],
-            "Left 3 thumbs", "Right 3 thumbs"
+            ["Centre", "Rotative", "Bouton", "Aucun"],
+            "Gauche 3 pouces", "Droite 3 pouces"
         ],
         "keymap":
         [
