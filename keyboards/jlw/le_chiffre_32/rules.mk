@@ -1,2 +1,1 @@
-
-RGB_MATRIX_ENABLE=yes
+# This file intentionally left blank
