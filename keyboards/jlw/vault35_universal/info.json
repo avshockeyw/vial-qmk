@@ -76,7 +76,8 @@
             "solid_reactive_wide": true,
             "solid_splash": true,
             "splash": true,
-            "typing_heatmap": true
+            "typing_heatmap": true,
+            "twinkle": true
         },
         "layout": [
             {"flags": 4, "matrix": [0, 0], "x": 18, "y": 24},
@@ -93,10 +94,9 @@
             {"flags": 4, "matrix": [2, 0], "x": 18, "y": 62}
         ],
         "driver": "ws2812",
-        "hue_steps": 4,
-        "max_brightness": 255,
-        "sat_steps": 4,
-        "val_steps": 4
+        "default": {
+            "animation": "cycle_left_right"
+        }
     },
     "ws2812": {
         "pin": "A1",

@@ -72,7 +72,8 @@
             "solid_reactive_wide": true,
             "solid_splash": true,
             "splash": true,
-            "typing_heatmap": true
+            "typing_heatmap": true,
+            "twinkle": true
         },
         "layout": [
             {"matrix": [0, 6], "x": 132, "y": 16, "flags": 2},
@@ -89,13 +90,13 @@
             {"matrix": [0, 4], "x": 91, "y": 16, "flags": 2}
         ],
         "driver": "ws2812",
-        "hue_steps": 4,
-        "sat_steps": 4,
-        "val_steps": 4
+        "default": {
+            "animation": "cycle_left_right"
+        }
     },
     "ws2812": {
-        "driver": "pwm",
-        "pin": "B15"
+        "pin": "B15",
+        "driver": "pwm"
     },
     "layouts": {
         "LAYOUT_split_6bars": {
