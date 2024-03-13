@@ -27,7 +27,13 @@
         "mousekey": true,
         "nkro": true,
         "encoder_map": true,
-        "rgb_matrix": true
+        "rgb_matrix": true,
+        "auto_shift": true,
+        "combos": true
+    },
+    "tapping": {
+        "hold_on_other_key_press_per_key": true,
+        "permissive_hold": true
     },
     "bootmagic": {
         "enabled": true,
