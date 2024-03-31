@@ -34,9 +34,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                        _______,  _______,            _______,  _______, _______,  _______
     ),
     [3] = LAYOUT_3thumb(
-         XXXXXXX,  XXXXXXX,  LSG(KC_4),   LSG(KC_S),   XXXXXXX,  _______,  KC_HOME,  XXXXXXX,  KC_UP,    XXXXXXX,  KC_PGUP,
-         KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LGUI,  XXXXXXX,            KC_END,   KC_LEFT,  KC_DOWN,  KC_RIGHT, KC_PGDN,
-         DF(0),    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,            DF(2),    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+         XXXXXXX,  XXXXXXX,  LSG(KC_4),LSG(KC_S),XXXXXXX,  _______,  KC_HOME,  XXXXXXX,  KC_UP,    XXXXXXX,  KC_PGUP,
+         KC_LGUI,  KC_LALT,  KC_LCTL,  KC_LSFT,  XXXXXXX,            KC_END,   KC_LEFT,  KC_DOWN,  KC_RIGHT, KC_PGDN,
+         DF(0),    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,            DF(3),    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
                                        _______,  _______,            _______,  _______, _______,  _______
     )
 };
