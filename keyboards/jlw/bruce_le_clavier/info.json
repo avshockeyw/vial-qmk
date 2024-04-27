@@ -20,13 +20,30 @@
         "extrakey": true,
         "mousekey": true,
         "nkro": true,
-        "encoder_map": true
+        "encoder_map": true,
+        "rgblight": true
     },
     "encoder": {
         "rotary": [{"pin_a": "B12", "pin_b": "B13"}]
     },
     "ws2812": {
         "pin": "B8"
+    },
+    "rgblight": {
+        "led_count": 69,
+        "driver": "ws2812",
+        "animations": {
+            "breathing": true,
+            "rainbow_mood": true,
+            "rainbow_swirl": true,
+            "snake": true,
+            "knight": true,
+            "christmas": true,
+            "static_gradient": true,
+            "rgb_test": true,
+            "alternating": true,
+            "twinkle": true
+        }
     },
     "layouts": {
         "LAYOUT": {
