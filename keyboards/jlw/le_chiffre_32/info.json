@@ -227,6 +227,9 @@
             "typing_heatmap": true,
             "twinkle": true
         },
+        "default": {
+            "val":0
+        },
         "driver": "ws2812",
         "sleep": true,
         "layout": [
