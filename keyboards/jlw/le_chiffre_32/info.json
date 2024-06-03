@@ -228,7 +228,9 @@
             "twinkle": true
         },
         "default": {
-            "val":0
+            "val":128,
+            "speed":88,
+            "animation": "multisplash"
         },
         "driver": "ws2812",
         "sleep": true,
